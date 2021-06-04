@@ -23,6 +23,12 @@ function request_handler(request, response){
         style_sheet.pipe(response);
         console.log("main style sheet uploaded");
     }
+    else if(request.url === "/css/style-turtle.css"){
+        const turtle_style_sheet = fs.createReadStream('../css/style-turtle.css');
+        response.writeHead(200, {'Content-Type':'text/css'});
+        turtle_style_sheet.pipe(response);
+        console.log("turtle style sheet uploaded");
+    }
     else if(request.url.startsWith("/search")){
         let turtle_species = new URL(`https://example.org${request.url}`).searchParams.get("choice")
         turtle_req_handler(turtle_species, response);
