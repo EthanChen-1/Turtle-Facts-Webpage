@@ -1,0 +1,8 @@
+body{
+    background-color: white;
+}
+
+#big-heading{
+    border: double 5px black;
+    text-align: center;
+}
